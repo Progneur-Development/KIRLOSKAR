@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="com.teamcenter.schedule.commands.category">
+      </category>
+      <command
+            name="All Active Shedules"
+            categoryId="com.teamcenter.schedule.commands.category"
+            id="com.teamcenter.schedule.commands.AllActiveShedules">
+      </command>
+      <command
+            name="Resource Assignee"
+            categoryId="com.teamcenter.schedule.commands.category"
+            id="com.teamcenter.schedule.commands.ResourceAssignee">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.teamcenter.schedule.commands.AllActiveShedules"
+            class="com.teamcenter.schedule.handlers.AllActiveScedulesHandler">
+      </handler>
+       <handler
+            commandId="com.teamcenter.schedule.commands.ResourceAssignee"
+            class="com.teamcenter.schedule.handlers.ResourceAssigneeHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.teamcenter.schedule.commands.AllActiveShedules"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+       <key
+            commandId="com.teamcenter.schedule.commands.ResourceAssignee"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+            
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Shedule"
+               mnemonic="M"
+               id="com.teamcenter.schedule.menus.Shedule">
+            <command
+                  commandId="com.teamcenter.schedule.commands.AllActiveShedules"
+                  mnemonic="S"
+                  id="com.teamcenter.schedule.menus.AllActiveShedules">
+            </command>
+            <command
+                  commandId="com.teamcenter.schedule.commands.ResourceAssignee"
+                  mnemonic="S"
+                  id="com.teamcenter.schedule.menus.ResourceAssignee">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

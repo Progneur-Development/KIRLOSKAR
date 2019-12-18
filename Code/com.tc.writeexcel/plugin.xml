@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="com.tc.writeexcel.commands.category">
+      </category>
+      <command
+            name="Schedule"
+            categoryId="com.tc.writeexcel.commands.category"
+            id="com.tc.writeexcel.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.tc.writeexcel.commands.sampleCommand"
+            class="com.tc.writeexcel.handlers.SampleHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.tc.writeexcel.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Report"
+               mnemonic="M"
+               id="com.tc.writeexcel.menus.sampleMenu">
+            <command
+                  commandId="com.tc.writeexcel.commands.sampleCommand"
+                  mnemonic="S"
+                  id="com.tc.writeexcel.menus.sampleCommand">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.tc.writeexcel.toolbars.sampleToolbar">
+            <command
+                  commandId="com.tc.writeexcel.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="Say hello world"
+                  id="com.tc.writeexcel.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
