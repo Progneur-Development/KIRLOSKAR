@@ -6,44 +6,46 @@
          point="org.eclipse.ui.commands">
       <category
             name="Sample Category"
-            id="com.teamcenter.schedule.commands.category">
+            id="com.tc.scheduledata.commands.category">
       </category>
       <command
-            name="All Active Shedules"
-            categoryId="com.teamcenter.schedule.commands.category"
-            id="com.teamcenter.schedule.commands.AllActiveShedules">
+            name="Program Level"
+            categoryId="com.tc.scheduledata.commands.category"
+            id="com.tc.scheduledata.commands.ProgramLevel">
       </command>
       <command
-            name="Resource Assignee"
-            categoryId="com.teamcenter.schedule.commands.category"
-            id="com.teamcenter.schedule.commands.ResourceAssignee">
+            name="Project Level"
+            categoryId="com.tc.scheduledata.commands.category"
+            id="com.tc.scheduledata.commands.ProjectLevel">
+      </command>
+      <command
+            name="Resource Loading"
+            categoryId="com.tc.scheduledata.commands.category"
+            id="com.tc.scheduledata.commands.ResourceLoading">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            commandId="com.teamcenter.schedule.commands.AllActiveShedules"
-            class="com.teamcenter.schedule.handlers.AllActiveScedulesHandler">
+            commandId="com.tc.scheduledata.commands.ProgramLevel"
+            class="com.tc.scheduledata.handlers.ProgramLevelHandler">
       </handler>
-       <handler
-            commandId="com.teamcenter.schedule.commands.ResourceAssignee"
-            class="com.teamcenter.schedule.handlers.ResourceAssigneeHandler">
+      <handler
+            commandId="com.tc.scheduledata.commands.ProjectLevel"
+            class="com.tc.scheduledata.handlers.ProjectLevelHandler">
+      </handler>
+      <handler
+            commandId="com.tc.scheduledata.commands.ResourceLoading"
+            class="com.tc.scheduledata.handlers.ResourceLoadingHandler">
       </handler>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
       <key
-            commandId="com.teamcenter.schedule.commands.AllActiveShedules"
+            commandId="com.tc.scheduledata.commands.sampleCommand"
             contextId="org.eclipse.ui.contexts.window"
             sequence="M1+6"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
-      </key>
-       <key
-            commandId="com.teamcenter.schedule.commands.ResourceAssignee"
-            contextId="org.eclipse.ui.contexts.window"
-            sequence="M1+6"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
-            
       </key>
    </extension>
    <extension
@@ -51,20 +53,37 @@
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               label="Shedule"
+               label="ScheduleManagerReport"
                mnemonic="M"
-               id="com.teamcenter.schedule.menus.Shedule">
+               id="com.tc.scheduledata.menus.sampleMenu">
             <command
-                  commandId="com.teamcenter.schedule.commands.AllActiveShedules"
+                  commandId="com.tc.scheduledata.commands.ProgramLevel"
                   mnemonic="S"
-                  id="com.teamcenter.schedule.menus.AllActiveShedules">
+                  id="com.tc.scheduledata.menus.ProgramLevel">
             </command>
             <command
-                  commandId="com.teamcenter.schedule.commands.ResourceAssignee"
+                  commandId="com.tc.scheduledata.commands.ProjectLevel"
                   mnemonic="S"
-                  id="com.teamcenter.schedule.menus.ResourceAssignee">
+                  id="com.tc.scheduledata.menus.ProjectLevel">
+            </command>
+            <command
+                  commandId="com.tc.scheduledata.commands.ResourceLoading"
+                  mnemonic="S"
+                  id="com.tc.scheduledata.menus.ResourceLoading">
             </command>
          </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.tc.scheduledata.toolbars.sampleToolbar">
+            <command
+                  commandId="com.tc.scheduledata.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="Say hello world"
+                  id="com.tc.scheduledata.toolbars.sampleCommand">
+            </command>
+         </toolbar>
       </menuContribution>
    </extension>
 
